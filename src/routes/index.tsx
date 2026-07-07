@@ -492,7 +492,7 @@ function Index() {
                 specs: [
                   { label: "CPU", value: "Threadripper" },
                   { label: "RAM", value: "128 GB+" },
-                  { label: "GPU", value: "GPU(s) de gama alta o doble GPU (ej. RTX 4090 24 GB)" },
+                  { label: "GPU", value: "RTX 4090" },
                   { label: "Almacenamiento", value: "NVMe 2 TB+ en RAID, redundancia real" },
                   { label: "Extras", value: "Fuente redundante, mejor refrigeración para uso 24/7 intensivo" },
                 ],
