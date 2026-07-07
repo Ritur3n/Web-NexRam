@@ -19,6 +19,9 @@ import {
   Zap,
   Lock,
   Linkedin,
+  Users,
+  HeadphonesIcon,
+  HardDrive,
 } from "lucide-react";
 import heroServer from "@/assets/hero-server.png";
 import benefitsServer from "@/assets/benefits-server.png";
