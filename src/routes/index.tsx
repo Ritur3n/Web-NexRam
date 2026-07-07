@@ -19,6 +19,9 @@ import {
   Zap,
   Lock,
   Linkedin,
+  Users,
+  HeadphonesIcon,
+  HardDrive,
 } from "lucide-react";
 import heroServer from "@/assets/hero-server.png";
 import benefitsServer from "@/assets/benefits-server.png";
@@ -31,6 +34,7 @@ export const Route = createFileRoute("/")({
 const nav = [
   { label: "Producto", href: "#producto" },
   { label: "Cómo funciona", href: "#como-funciona" },
+  { label: "Precios", href: "#precios" },
   { label: "Casos de uso", href: "#casos" },
   { label: "Comparativa", href: "#comparativa" },
 ];
@@ -437,6 +441,115 @@ function Index() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="precios" className="bg-softgray/60 py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+              Precios
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Elige el plan que mejor se adapte a las necesidades de tu
+              organización.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                name: "Básico",
+                price: "1.000 €",
+                features: [
+                  { icon: Lock, text: "IA privada local" },
+                  { icon: Server, text: "1 servidor" },
+                  { icon: Users, text: "Hasta 10 usuarios" },
+                  { icon: Wrench, text: "Soporte por email" },
+                ],
+                highlighted: false,
+              },
+              {
+                name: "Estándar",
+                price: "5.000 €",
+                features: [
+                  { icon: Lock, text: "IA privada local" },
+                  { icon: Server, text: "2 servidores" },
+                  { icon: Users, text: "Hasta 50 usuarios" },
+                  { icon: HeadphonesIcon, text: "Soporte prioritario" },
+                  { icon: HardDrive, text: "Backup automático" },
+                ],
+                highlighted: true,
+              },
+              {
+                name: "Premium",
+                price: "10.000 €",
+                features: [
+                  { icon: Lock, text: "IA privada local" },
+                  { icon: Server, text: "Servidores ilimitados" },
+                  { icon: Users, text: "Usuarios ilimitados" },
+                  { icon: HeadphonesIcon, text: "Soporte 24/7" },
+                  { icon: ShieldCheck, text: "SLA garantizado" },
+                  { icon: Gauge, text: "Auditoría de seguridad" },
+                ],
+                highlighted: false,
+              },
+            ].map((plan, i) => (
+              <Reveal
+                key={plan.name}
+                delay={i * 100}
+                as="article"
+                className={`relative flex flex-col rounded-3xl border p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 ${
+                  plan.highlighted
+                    ? "border-2 border-primary/30 bg-card shadow-glow"
+                    : "border-border bg-card"
+                }`}
+              >
+                {plan.highlighted && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground">
+                    Recomendado
+                  </span>
+                )}
+                <h3 className="text-lg font-bold text-foreground">
+                  {plan.name}
+                </h3>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <span className="font-display text-4xl font-extrabold tracking-tight text-foreground">
+                    {plan.price}
+                  </span>
+                </div>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Pago único
+                </p>
+                <ul className="mt-6 flex flex-1 flex-col gap-3">
+                  {plan.features.map((f) => (
+                    <li key={f.text} className="flex items-start gap-3">
+                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+                        <f.icon className="h-3 w-3" />
+                      </span>
+                      <span className="text-sm text-muted-foreground">
+                        {f.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8">
+                  <Link
+                    to="/demo"
+                    className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
+                      plan.highlighted
+                        ? "bg-primary text-primary-foreground shadow-glow hover:brightness-110"
+                        : "border border-border bg-card/70 text-foreground backdrop-blur hover:border-primary/40"
+                    }`}
+                  >
+                    Solicitar demo
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
