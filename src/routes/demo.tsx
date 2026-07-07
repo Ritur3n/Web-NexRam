@@ -5,16 +5,16 @@ import { ArrowLeft, Check, Lock } from "lucide-react";
 export const Route = createFileRoute("/demo")({
   head: () => ({
     meta: [
-      { title: "Solicitar una demo — Nevra" },
+      { title: "Solicitar una demo — Nex Ram" },
       {
         name: "description",
         content:
-          "Solicita una demostración personalizada del servidor de IA privada Nevra. Descubre cómo llevar la inteligencia artificial a tus instalaciones.",
+          "Solicita una demostración personalizada del servidor de IA privada Nex Ram. Descubre cómo llevar la inteligencia artificial a tus instalaciones.",
       },
-      { property: "og:title", content: "Solicitar una demo — Nevra" },
+      { property: "og:title", content: "Solicitar una demo — Nex Ram" },
       {
         property: "og:description",
-        content: "Solicita una demostración personalizada del servidor de IA privada Nevra.",
+        content: "Solicita una demostración personalizada del servidor de IA privada Nex Ram.",
       },
     ],
   }),
@@ -62,7 +62,7 @@ function Logo() {
         <Lock className="h-4 w-4" />
       </div>
       <span className="font-display text-lg font-extrabold tracking-tight text-foreground">
-        Nevra
+        Nex Ram
       </span>
     </Link>
   );
@@ -152,7 +152,7 @@ function DemoPage() {
               Solicitar una demo
             </h1>
             <p className="mt-3 max-w-xl text-muted-foreground">
-              Completa el formulario y te mostraremos cómo el servidor Nevra
+              Completa el formulario y te mostraremos cómo el servidor Nex Ram
               puede llevar la inteligencia artificial privada a tu organización.
             </p>
 
