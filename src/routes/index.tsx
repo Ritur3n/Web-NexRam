@@ -461,39 +461,43 @@ function Index() {
             {[
               {
                 name: "Básico",
-                price: "1.000 €",
-                features: [
-                  { icon: Lock, text: "IA privada local" },
-                  { icon: Server, text: "1 servidor" },
-                  { icon: Users, text: "Hasta 10 usuarios" },
-                  { icon: Wrench, text: "Soporte por email" },
-                ],
+                price: "~1.000€",
                 highlighted: false,
+                specs: [
+                  { label: "CPU", value: "Gama media (Ryzen 5)" },
+                  { label: "RAM", value: "32 GB" },
+                  { label: "GPU", value: "Sin GPU dedicada" },
+                  { label: "Almacenamiento", value: "SSD NVMe 1 TB" },
+                ],
+                useCases:
+                  "Chatbot interno básico, pruebas, pocos usuarios simultáneos, modelos ligeros (Llama 3 8B, Mistral 7B).",
               },
               {
                 name: "Estándar",
-                price: "5.000 €",
-                features: [
-                  { icon: Lock, text: "IA privada local" },
-                  { icon: Server, text: "2 servidores" },
-                  { icon: Users, text: "Hasta 50 usuarios" },
-                  { icon: HeadphonesIcon, text: "Soporte prioritario" },
-                  { icon: HardDrive, text: "Backup automático" },
-                ],
+                price: "~5.000€",
                 highlighted: true,
+                specs: [
+                  { label: "CPU", value: "Ryzen 7" },
+                  { label: "RAM", value: "64 GB" },
+                  { label: "GPU", value: "RTX 4070 Ti" },
+                  { label: "Almacenamiento", value: "NVMe 1 TB" },
+                ],
+                useCases:
+                  "Empresa pequeña-mediana, varios usuarios simultáneos, modelos más capaces, RAG con documentos.",
               },
               {
                 name: "Premium",
-                price: "10.000 €",
-                features: [
-                  { icon: Lock, text: "IA privada local" },
-                  { icon: Server, text: "Servidores ilimitados" },
-                  { icon: Users, text: "Usuarios ilimitados" },
-                  { icon: HeadphonesIcon, text: "Soporte 24/7" },
-                  { icon: ShieldCheck, text: "SLA garantizado" },
-                  { icon: Gauge, text: "Auditoría de seguridad" },
-                ],
+                price: "~10.000€",
                 highlighted: false,
+                specs: [
+                  { label: "CPU", value: "Xeon o gama muy alta de consumo" },
+                  { label: "RAM", value: "128 GB+" },
+                  { label: "GPU", value: "GPU(s) de gama alta o doble GPU (ej. RTX 4090 24 GB)" },
+                  { label: "Almacenamiento", value: "NVMe 2 TB+ en RAID, redundancia real" },
+                  { label: "Extras", value: "Fuente redundante, mejor refrigeración para uso 24/7 intensivo" },
+                ],
+                useCases:
+                  "Empresa con carga de trabajo real, múltiples departamentos, modelos grandes o varios modelos cargados a la vez, alta concurrencia.",
               },
             ].map((plan, i) => (
               <Reveal
@@ -520,20 +524,38 @@ function Index() {
                   </span>
                 </div>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Pago único
+                  Configuración orientativa
                 </p>
-                <ul className="mt-6 flex flex-1 flex-col gap-3">
-                  {plan.features.map((f) => (
-                    <li key={f.text} className="flex items-start gap-3">
-                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
-                        <f.icon className="h-3 w-3" />
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {f.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+
+                <div className="mt-6 flex flex-1 flex-col gap-4">
+                  <div className="rounded-2xl bg-softgray/50 p-4">
+                    <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      Especificaciones técnicas
+                    </h4>
+                    <dl className="space-y-2">
+                      {plan.specs.map((s) => (
+                        <div key={s.label} className="flex gap-2">
+                          <dt className="shrink-0 text-xs font-semibold text-foreground">
+                            {s.label}:
+                          </dt>
+                          <dd className="text-xs leading-relaxed text-muted-foreground">
+                            {s.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+
+                  <div className="rounded-2xl bg-skyblue/30 p-4">
+                    <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      Casos de uso
+                    </h4>
+                    <p className="text-xs leading-relaxed text-muted-foreground">
+                      {plan.useCases}
+                    </p>
+                  </div>
+                </div>
+
                 <div className="mt-8">
                   <Link
                     to="/demo"
